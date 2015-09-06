@@ -35,7 +35,7 @@
         <h1><a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
         <?php if($this->options->siteMail):?>
         <p class="avatar">
-            <a href="<?php $this->options->siteUrl(); ?>"><img src="<?php echo TeGravatar_Plugin::gravatarUrl($this->options->siteMail,80); ?>"></a>
+            <a href="<?php $this->options->siteUrl(); ?>"><img src="<?php echo Typecho_Common::gravatarUrl($this->options->siteMail,80,'G',''); ?>"></a>
         </p>
         <?php endif;?>
 	    <p class="description"><?php $this->options->description() ?></p>
