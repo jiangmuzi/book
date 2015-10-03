@@ -3,8 +3,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 function themeConfig($form) {
     
-    $siteMail = new Typecho_Widget_Helper_Form_Element_Text('siteMail', null, 'sisome@qq.com', _t('站点邮箱'), _t('站点邮箱，显示Gravatar头像'));
-    $form->addInput($siteMail);
+    $siteAvatar = new Typecho_Widget_Helper_Form_Element_Text('siteAvatar', null, null, _t('头像地址'), _t('显示站点头像'));
+    $form->addInput($siteAvatar);
     
     $icpNum = new Typecho_Widget_Helper_Form_Element_Text('icpNum', NULL, NULL, _t('网站备案号'), _t('在这里填入网站备案号'));
     $form->addInput($icpNum);
@@ -28,8 +28,11 @@ function themeConfig($form) {
     //默认高度
     $height = new Typecho_Widget_Helper_Form_Element_Text('thumb_height', NULL, '324', _t('缩略图默认高度'));
     $form->addInput($height);
+	//屏幕宽度
+    $screenWidth = new Typecho_Widget_Helper_Form_Element_Radio('screenWidth', array('normal'=> _t('普通模式'),'mini'=> _t('MINI模式')),NULL, _t('屏幕宽度'),
+	_t('普通模式下宽度为655px;MINI模式为540px'));
+    $form->addInput($screenWidth);
 }
-
 
 function showThumb($obj,$size=null,$link=false,$pattern='<div class="post-thumb"><a class="thumb" href="{permalink}" title="{title}" style="background-image:url({thumb})"></a></div>'){
 
@@ -144,7 +147,12 @@ $commentLevelClass = $comments->levels > 0 ? ' comment-child' : ' comment-parent
         <cite class="fn" itemprop="name" title="<?php $singleCommentOptions->beforeDate();
         $comments->date($singleCommentOptions->dateFormat);
         $singleCommentOptions->afterDate(); ?>"><?php $singleCommentOptions->beforeAuthor();
-        $comments->author();
+
+        if ($comments->url) {
+            echo '<a href="' , $comments->url , '"' , ' rel="external nofollow" target="_blank"' , '>' , $comments->author , '</a>';
+        } else {
+            echo $comments->author;
+        }
         $singleCommentOptions->afterAuthor(); _e('：');?></cite>
     </div>
     <div class="comment-meta">

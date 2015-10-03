@@ -136,18 +136,14 @@ a,a:hover {
 	background-image: -webkit-radial-gradient(center,ellipse cover,#819DB2 0,#65839F 36%,#1F282F 100%);
 	background-size: cover,100%;
 	background-position: center center;
-	background-repeat: no-repeat;
-	background: url(img/all_bg.png) no-repeat;
-}
-.wallpapers.mini{
 	background: url(img/bg.png);
 }
 #wrapper{
-    width:540px;
+    width:655px;
     margin:50px auto;
 }
-#wrapper.normal{
-	width:655px;
+#wrapper.mini{
+	width:540px;
 }
 .box-bar{
     position: relative;
@@ -155,10 +151,11 @@ a,a:hover {
     height: 4px;
     line-height: 4px;
     font-size: 0;
-    background:url('img/bar.png') center -8px;
-}
-#wrapper.normal .box-bar{
+    background:url('img/bar.png');
 	background-position:center -28px;
+}
+#wrapper.mini .box-bar{
+	background-position:center -8px;
 }
 @media(max-width:520px) {
     #wrapper {
@@ -216,7 +213,19 @@ body,#nav-menu a,#footer a,.post-title a{
     margin: .5em 0 0;
     color: #c1c1c1;
 }
-
+.avatar img,img.avatar {
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-transition: all 0.49s;
+	-moz-transition: all 0.49s;
+	-ms-transition: all 0.49s;
+	-o-transition: all 0.49s;
+	transition: all 0.49s;
+}
+img.avatar:hover,.avatar img:hover{
+	transform:rotateZ(360deg); 
+}
 #nav-menu {
     padding: 6px 0 0;
 }
@@ -433,7 +442,7 @@ body,#nav-menu a,#footer a,.post-title a{
     background: #FFF;
 }
 .comment-list li.comment-by-author {
-    border-left:2px solid rgba(0,0,0,0.2);
+    border-left:1px solid rgba(0,0,0,0.2);
 }
 .comment-list li .comment-reply {
     text-align: right;
@@ -538,6 +547,7 @@ body,#nav-menu a,#footer a,.post-title a{
 #footer {
     padding: 3em 0 1em;
     text-align: center;
+	font-size:12px;
 }
 
 .error-page {

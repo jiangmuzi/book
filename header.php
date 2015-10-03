@@ -28,14 +28,14 @@
 <!--[if lt IE 8]>
     <div class="browsehappy" role="dialog"><?php _e('当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>'); ?>.</div>
 <![endif]-->
-<div class="wallpapers mini"></div>
-<div id="wrapper" class="">
+<div class="wallpapers"></div>
+<div id="wrapper" <?php if($this->options->screenWidth=='mini'):?> class="mini" <?php endif;?>>
 <header id="header" class="clearfix">
     <div class="site-name">
         <h1><a id="logo" href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title() ?></a></h1>
-        <?php if($this->options->siteMail):?>
+        <?php if($this->options->siteAvatar):?>
         <p class="avatar">
-            <a href="<?php $this->options->siteUrl(); ?>"><img src="<?php echo TeGravatar_Plugin::gravatarUrl($this->options->siteMail,80); ?>"></a>
+            <a href="<?php $this->options->siteUrl(); ?>"><img src="<?php echo $this->options->siteAvatar; ?>" width="80" height="80"></a>
         </p>
         <?php endif;?>
 	    <p class="description"><?php $this->options->description() ?></p>
