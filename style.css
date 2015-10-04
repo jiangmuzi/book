@@ -157,7 +157,15 @@ a,a:hover {
 #wrapper.mini .box-bar{
 	background-position:center -8px;
 }
-@media(max-width:520px) {
+@media(max-width:555px) {
+    #wrapper.mini {
+        width:100%;
+    }
+    #wrapper>#header,#wrapper>#footer,#wrapper>#body{
+		margin:0 10px;
+    }
+}
+@media(max-width:670px) {
     #wrapper {
         width:100%;
     }
