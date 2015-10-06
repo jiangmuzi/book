@@ -30,7 +30,7 @@
         			<input type="url" name="url" id="url" class="text" placeholder="<?php _e('http://'); ?>" value="<?php $this->remember('url'); ?>"<?php if ($this->options->commentsRequireURL): ?> required<?php endif; ?> />
         		</p>
                 <?php endif; ?>
-                <button type="submit" class="submit"><?php _e('提交评论'); ?>
+                <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
             </div>
             
     	</form>
